@@ -4,7 +4,7 @@
   "description": "bar",
   "type": "module",
   "scripts": {
-    "dev": "ts-node --esm ./test/integration.ts"
+    "dev": "ts-node --esm --experimental-specifier-resolution=node ./test/integration.ts"
   },
   "dependencies": {
     "@aztec/bb.js": "^0.3.4",

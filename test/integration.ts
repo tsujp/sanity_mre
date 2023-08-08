@@ -1,4 +1,5 @@
 import { Crs, RawBuffer, newBarretenbergApiAsync } from '@aztec/bb.js/dest/node/index.js'
+import { Ptr } from '@aztec/bb.js/dest/node/types'
 import { compressWitness, executeCircuit } from '@noir-lang/acvm_js'
 import ethers from 'ethers'
 import { decompressSync } from 'fflate'
@@ -11,9 +12,15 @@ const acirBuffer = Buffer.from(
 const acirBufferUncompressed = decompressSync(acirBuffer)
 
 async function foo () {
-   try {
       // Start init
       const api = await newBarretenbergApiAsync(4)
+      // let acirComposer = new Ptr(new Uint8Array())
+
+      // All 3 of these (2 commented) fail.
+      // const ptr = Ptr.fromBuffer(Uint8Array.from([]))
+      // const ptr = new Ptr(new Uint8Array())
+      const ptr = await api.acirNewAcirComposer(2 ** 19)
+      await api.acirInitProvingKey(ptr, acirBufferUncompressed)
 
       // Error occurs upon call to acirGetCircuitSizes.
       const [exact, total, subgroup] = await api.acirGetCircuitSizes(
@@ -55,10 +62,6 @@ async function foo () {
 
       console.log('Proof:', proof)
       // ---/
-   } catch (e) {
-      console.log(e)
-      throw e
-   }
 }
 
 await foo()
