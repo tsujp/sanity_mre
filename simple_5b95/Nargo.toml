@@ -1,0 +1,7 @@
+[package]
+name = "simple_5b95"
+type = "bin"
+authors = [""]
+compiler_version = "0.9.0"
+
+[dependencies]

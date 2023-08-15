@@ -4,8 +4,15 @@ import { compressWitness, executeCircuit } from '@noir-lang/acvm_js'
 import ethers from 'ethers'
 import { decompressSync } from 'fflate'
 
+// Works!
+const anotherOne = 'H4sIAAAAAAAA/7WTMRLEIAhFMYkp9ywgGrHbq6yz5v5H2JkdCyaxC9LgWDw+H9gBwMM91p7fPeOzIKdYjEeMLYdGTB8MpUrCmOohJJQkfYMwN4mSSy0ZC0VudKbCZ4cthqzVrsc/yw28dMZeWmrWerfBexnsxD6hJ7jUufr4GvyZFp8xpG0C14Pd8s/q29vPCBXypvmpDx7sD8opnfqIfsM1RNtxBQAA'
+
+const anotherTwo = 'H4sIAAAAAAAA/7WTMRLEIAhFMYkp9ywgGrHbq6yz5v5H2JkdCyaxC9LgWDw+H9gBwMM91p7fPeOzIKdYjEeMLYdGTB8MpUrCmOohJJQkfYMwN4mSSy0ZC0VudKbCZ4cthqzVrsc/yw28dMZeWmrWerfBexnsxD6hJ7jUufr4GvyZFp8xpG0C14Pd8s/q29vPCBXypvmpDx7sD8opnfqIfsM1RNtxBQAA'
+
+const notWorkingTryOne = 'H4sIAAAAAAAA/82RSw7DMAhESVL3PGAghl2vUqvO/Y9QqbIlq12GSJ0NrJ7mcweABL/a+n30i+dEy8Ri3EVayY2Ynpi9mqJo3Y2M1PSVjbmZWPHqBZ2EGx3qfHTYGsja4jJ+fI3ubv1fgnsc7G/u2R5SYA9X5U4X5I7cHyb98T40vK2T3zdWhU+xCAQAAA=='
+
 const acirBuffer = Buffer.from(
-   'H4sIAAAAAAAA/82RSw7DMAhESVL3PGAghl2vUqvO/Y9QqbIlq12GSJ0NrJ7mcweABL/a+n30i+dEy8Ri3EVayY2Ynpi9mqJo3Y2M1PSVjbmZWPHqBZ2EGx3qfHTYGsja4jJ+fI3ubv1fgnsc7G/u2R5SYA9X5U4X5I7cHyb98T40vK2T3zdWhU+xCAQAAA==',
+   anotherTwo,
    'base64',
 )
 
@@ -19,8 +26,8 @@ async function foo () {
       // All 3 of these (2 commented) fail.
       // const ptr = Ptr.fromBuffer(Uint8Array.from([]))
       // const ptr = new Ptr(new Uint8Array())
-      const ptr = await api.acirNewAcirComposer(2 ** 19)
-      await api.acirInitProvingKey(ptr, acirBufferUncompressed)
+      // const ptr = await api.acirNewAcirComposer(2 ** 19)
+      // await api.acirInitProvingKey(ptr, acirBufferUncompressed)
 
       // Error occurs upon call to acirGetCircuitSizes.
       const [exact, total, subgroup] = await api.acirGetCircuitSizes(
@@ -40,7 +47,7 @@ async function foo () {
       // ---/
 
       // Witness
-      const input = { x: 1, y: 1 }
+      const input = { x: 1, y: 2 }
       const initialWitness = new Map<number, string>()
       initialWitness.set(1, ethers.utils.hexZeroPad(`0x${input.x.toString(16)}`, 32))
       initialWitness.set(2, ethers.utils.hexZeroPad(`0x${input.y.toString(16)}`, 32))
@@ -61,6 +68,8 @@ async function foo () {
       )
 
       console.log('Proof:', proof)
+
+   return proof
       // ---/
 }
 

@@ -7,8 +7,8 @@
     "dev": "ts-node --esm --experimental-specifier-resolution=node ./test/integration.ts"
   },
   "dependencies": {
-    "@aztec/bb.js": "^0.3.4",
-    "@noir-lang/acvm_js": "git+https://github.com/noir-lang/acvm-simulator-wasm.git#c56eec56f67f90fef90126c5575b85190bdcd1e1",
+    "@aztec/bb.js": "^0.3.5",
+    "@noir-lang/acvm_js": "git+https://github.com/noir-lang/acvm-simulator-wasm.git",
     "ethers": "^5.7.2",
     "fflate": "^0.8.0",
     "ts-node": "^10.9.1"

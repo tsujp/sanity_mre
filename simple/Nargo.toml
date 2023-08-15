@@ -1,0 +1,6 @@
+[package]
+name = "simple"
+authors = [""]
+compiler_version = "0.9.0"
+
+[dependencies]

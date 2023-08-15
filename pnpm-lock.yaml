@@ -1,8 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@aztec/bb.js': ^0.3.4
-  '@noir-lang/acvm_js': git+https://github.com/noir-lang/acvm-simulator-wasm.git#c56eec56f67f90fef90126c5575b85190bdcd1e1
+  '@aztec/bb.js': ^0.3.5
+  '@noir-lang/acvm_js': git+https://github.com/noir-lang/acvm-simulator-wasm.git
   '@types/mocha': ^10.0.1
   '@types/node': ^18.15.5
   ethers: ^5.7.2
@@ -12,7 +12,7 @@ specifiers:
 
 dependencies:
   '@aztec/bb.js': 0.3.5
-  '@noir-lang/acvm_js': github.com/noir-lang/acvm-simulator-wasm/c56eec56f67f90fef90126c5575b85190bdcd1e1
+  '@noir-lang/acvm_js': github.com/noir-lang/acvm-simulator-wasm/b9d9ca9dfc5140839f23998d9466307215607c42
   ethers: 5.7.2
   fflate: 0.8.0
   ts-node: 10.9.1_stwh3ikiliya2xsfm7tdritzry
@@ -621,8 +621,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  github.com/noir-lang/acvm-simulator-wasm/c56eec56f67f90fef90126c5575b85190bdcd1e1:
-    resolution: {commit: c56eec56f67f90fef90126c5575b85190bdcd1e1, repo: git+ssh://git@github.com/noir-lang/acvm-simulator-wasm.git, type: git}
+  github.com/noir-lang/acvm-simulator-wasm/b9d9ca9dfc5140839f23998d9466307215607c42:
+    resolution: {commit: b9d9ca9dfc5140839f23998d9466307215607c42, repo: git+ssh://git@github.com/noir-lang/acvm-simulator-wasm.git, type: git}
     name: '@noir-lang/acvm_js'
-    version: 0.0.0-3cc4575
+    version: 0.0.0-d576736
     dev: false
